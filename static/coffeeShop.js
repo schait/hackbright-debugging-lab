@@ -3,11 +3,11 @@
 const addButtons = document.querySelectorAll(".add-to-order");
 const cartTotalDiv = document.querySelector("#cart-total");
 
+let cart = {};
+let orderTotal = 0;
 for (const button of addButtons) {
     button.addEventListener('click', () => {
       const item = button.id;
-      let cart = {};
-      let orderTotal = 0;
       fetch(`/update-cart.json`)
         .then(response => response.json())
         .then(result => {
